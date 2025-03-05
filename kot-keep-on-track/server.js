@@ -10,15 +10,21 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-// Importando as rotas
+// Importando as rotas existentes
 const authRoutes = require('./routes/authRoutes');
 const financialRoutes = require('./routes/financialRoutes');
 const channelRoutes = require('./routes/channelRoutes');
+
+// Importando a rota de migração
+const dbRoutes = require('./routes/dbRoutes');
 
 // Configurando as rotas
 app.use('/api/auth', authRoutes);
 app.use('/api/financial', financialRoutes);
 app.use('/api/channels', channelRoutes);
+
+// Rota de migração (para criar a tabela sem terminal)
+app.use('/api/db', dbRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
