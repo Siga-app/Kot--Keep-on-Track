@@ -12,10 +12,11 @@ app.use(cors());
 // Importar rotas
 const authRoutes = require('./routes/authRoutes');
 const dbRoutes = require('./routes/dbRoutes');
+const financialRoutes = require('./routes/financialRoutes');
 
-// Configurar rotas
 app.use('/api/auth', authRoutes);
 app.use('/api/db', dbRoutes);
+app.use('/api/financial', financialRoutes);
 
 // Rota raiz para teste
 app.get('/', (req, res) => {
