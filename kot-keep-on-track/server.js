@@ -6,25 +6,21 @@ const cors = require('cors');
 
 const app = express();
 
-// Configuração do middleware
 app.use(bodyParser.json());
 app.use(cors());
 
-// Importando as rotas existentes
+// Importar rotas
 const authRoutes = require('./routes/authRoutes');
-const financialRoutes = require('./routes/financialRoutes');
-const channelRoutes = require('./routes/channelRoutes');
-
-// Importando a rota de migração
 const dbRoutes = require('./routes/dbRoutes');
 
-// Configurando as rotas
+// Configurar rotas
 app.use('/api/auth', authRoutes);
-app.use('/api/financial', financialRoutes);
-app.use('/api/channels', channelRoutes);
-
-// Rota de migração (para criar a tabela sem terminal)
 app.use('/api/db', dbRoutes);
+
+// Rota raiz para teste
+app.get('/', (req, res) => {
+  res.send('KOT - Keep On Track Backend Running');
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
