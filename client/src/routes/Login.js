@@ -13,8 +13,9 @@ function Login() {
     axios.post('https://kot-keep-on-track.onrender.com/api/auth/login', { email, password })
       .then(response => {
         setToken(response.data.token);
+        localStorage.setItem('token', response.data.token);
         alert('Login realizado com sucesso!');
-        navigate('/');
+        navigate('/dashboard');
       })
       .catch(error => {
         console.error('Erro no login:', error);
@@ -34,7 +35,7 @@ function Login() {
           <label>Senha:</label><br/>
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         </div>
-        <button type="submit">Entrar</button>
+        <button type="submit" style={{ marginTop: '10px' }}>Entrar</button>
       </form>
       {token && <p>Token: {token}</p>}
     </div>
