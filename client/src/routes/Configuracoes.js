@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function Configuracoes() {
-  const [user, setUser] = useState({
+  const [user] = useState({
     nome: 'Usuário Exemplo',
     email: 'usuario@example.com',
     foto: 'https://via.placeholder.com/150'
@@ -12,7 +12,7 @@ function Configuracoes() {
 
   const handleLogout = () => {
     alert("Logout realizado!");
-    // Aqui redirecione para a página de login, se necessário
+    // Redirecione para a página de login, se necessário.
   };
 
   return (
