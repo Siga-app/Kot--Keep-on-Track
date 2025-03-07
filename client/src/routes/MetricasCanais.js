@@ -55,18 +55,19 @@ function MetricasCanais() {
       nome: form.nome,
       plataforma: form.plataforma,
       url: form.url,
-      metrics: {}
+      metrics: {} // Inicialmente vazio; será atualizado com dados reais
     };
     setCanais([...canais, novoCanal]);
     setForm({ nome: '', plataforma: 'YouTube', url: '' });
-    alert("Canal adicionado (simulado)!");
+    alert("Canal adicionado!");
   };
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h2>Métricas de Canais</h2>
+    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+      <h2>Gestão de Mídias</h2>
+      <p>Adicione e gerencie os canais das suas redes. Você pode cadastrar até 2 canais gratuitamente.</p>
 
-      <form onSubmit={handleAddChannel} style={{ marginBottom: '20px', border: '1px solid #ccc', padding: '15px', borderRadius: '5px' }}>
+      <form onSubmit={handleAddChannel} style={{ marginBottom: '20px', border: '1px solid #ccc', padding: '15px', borderRadius: '8px' }}>
         <h3>Adicionar Canal</h3>
         <div>
           <label>Nome do Canal:</label><br />
@@ -91,35 +92,38 @@ function MetricasCanais() {
         <p>Nenhum canal cadastrado.</p>
       ) : (
         canais.map(canal => (
-          <div key={canal.id} style={{ border: '1px solid #ccc', padding: '10px', borderRadius: '5px', marginBottom: '15px' }}>
-            <h3>{canal.nome} ({canal.plataforma})</h3>
-            {canal.plataforma === 'YouTube' && canal.metrics ? (
-              <div>
-                <p>Último vídeo postado: {canal.metrics.ultimoVideo || "N/A"}</p>
-                <p>Views diárias: {canal.metrics.viewsDiarias || "N/A"}</p>
-                <p>Views do mês: {canal.metrics.viewsMes || "N/A"}</p>
-                <p>Views totais: {canal.metrics.viewsTotais || "N/A"}</p>
-                <p>Inscritos ganhos diariamente: {canal.metrics.inscritosDiarios || "N/A"}</p>
-                <p>Inscritos ganhos no mês: {canal.metrics.inscritosMes || "N/A"}</p>
-                <p>Total de inscritos: {canal.metrics.totalInscritos || "N/A"}</p>
-              </div>
-            ) : canal.plataforma === 'Instagram' && canal.metrics ? (
-              <div>
-                <p>Última postagem: {canal.metrics.ultimaPostagem || "N/A"}</p>
-                <p>Seguidores atuais: {canal.metrics.seguidoresAtuais || "N/A"}</p>
-                <p>Crescimento diário: {canal.metrics.crescimentoDiario || "N/A"}</p>
-                <p>Total de seguidores: {canal.metrics.totalSeguidores || "N/A"}</p>
-              </div>
-            ) : canal.plataforma === 'TikTok' && canal.metrics ? (
-              <div>
-                <p>Último vídeo postado: {canal.metrics.ultimoVideo || "N/A"}</p>
-                <p>Views diárias: {canal.metrics.viewsDiarias || "N/A"}</p>
-                <p>Crescimento de seguidores: {canal.metrics.crescimentoDiario || "N/A"}</p>
-                <p>Total de seguidores: {canal.metrics.totalSeguidores || "N/A"}</p>
-              </div>
-            ) : (
-              <p>Métricas não disponíveis.</p>
-            )}
+          <div key={canal.id} style={{ border: '1px solid #ccc', padding: '10px', borderRadius: '8px', marginBottom: '15px', display: 'flex', alignItems: 'center' }}>
+            <img src="https://via.placeholder.com/80" alt="Miniatura do Canal" style={{ marginRight: '15px', borderRadius: '5px' }} />
+            <div>
+              <h3>{canal.nome} ({canal.plataforma})</h3>
+              {canal.plataforma === 'YouTube' && canal.metrics ? (
+                <div>
+                  <p>Último vídeo postado: {canal.metrics.ultimoVideo || "N/A"}</p>
+                  <p>Views diárias: {canal.metrics.viewsDiarias || "N/A"}</p>
+                  <p>Views do mês: {canal.metrics.viewsMes || "N/A"}</p>
+                  <p>Views totais: {canal.metrics.viewsTotais || "N/A"}</p>
+                  <p>Inscritos diários: {canal.metrics.inscritosDiarios || "N/A"}</p>
+                  <p>Inscritos no mês: {canal.metrics.inscritosMes || "N/A"}</p>
+                  <p>Total de inscritos: {canal.metrics.totalInscritos || "N/A"}</p>
+                </div>
+              ) : canal.plataforma === 'Instagram' && canal.metrics ? (
+                <div>
+                  <p>Última postagem: {canal.metrics.ultimaPostagem || "N/A"}</p>
+                  <p>Seguidores atuais: {canal.metrics.seguidoresAtuais || "N/A"}</p>
+                  <p>Crescimento diário: {canal.metrics.crescimentoDiario || "N/A"}</p>
+                  <p>Total de seguidores: {canal.metrics.totalSeguidores || "N/A"}</p>
+                </div>
+              ) : canal.plataforma === 'TikTok' && canal.metrics ? (
+                <div>
+                  <p>Último vídeo postado: {canal.metrics.ultimoVideo || "N/A"}</p>
+                  <p>Views diárias: {canal.metrics.viewsDiarias || "N/A"}</p>
+                  <p>Crescimento diário: {canal.metrics.crescimentoDiario || "N/A"}</p>
+                  <p>Total de seguidores: {canal.metrics.totalSeguidores || "N/A"}</p>
+                </div>
+              ) : (
+                <p>Métricas não disponíveis.</p>
+              )}
+            </div>
           </div>
         ))
       )}
