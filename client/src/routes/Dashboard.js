@@ -1,10 +1,8 @@
-// client/src/routes/Dashboard.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 function Dashboard() {
-  // Estados para armazenar dados simulados de resumo financeiro e métricas de canais
   const [financialSummary, setFinancialSummary] = useState({
     totalReceitas: 0,
     totalDespesas: 0,
@@ -18,7 +16,7 @@ function Dashboard() {
   });
   
   useEffect(() => {
-    // Aqui simulamos a chamada aos endpoints; substitua com os reais quando estiverem disponíveis.
+    // Chamadas simuladas para endpoints; substitua por chamadas reais quando disponíveis.
     axios.get('https://kot-keep-on-track.onrender.com/api/financial/summary')
       .then(response => {
         setFinancialSummary(response.data);
@@ -36,7 +34,6 @@ function Dashboard() {
     <div style={{ padding: '20px' }}>
       <h2>Dashboard</h2>
       
-      {/* Cards de Resumo */}
       <div style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>
         <div style={{ flex: 1, border: '1px solid #ccc', borderRadius: '5px', padding: '10px' }}>
           <h3>Resumo Financeiro</h3>
@@ -52,13 +49,11 @@ function Dashboard() {
         </div>
       </div>
       
-      {/* Gráfico Rápido - Simulação */}
       <div style={{ marginBottom: '20px', border: '1px solid #ccc', padding: '10px', borderRadius: '5px' }}>
         <h3>Gráfico de Evolução</h3>
         <p>(Gráfico de linhas simulando evolução do saldo nos últimos meses)</p>
       </div>
       
-      {/* Atalhos Rápidos */}
       <div>
         <h3>Acessos Rápidos</h3>
         <Link to="/gestao-financeira" style={{ marginRight: '15px' }}>
