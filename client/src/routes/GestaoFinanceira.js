@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 function GestaoFinanceira() {
   const [records, setRecords] = useState([]);
-  const [categories, setCategories] = useState({
+  const [categories] = useState({
     despesas: ["Produção", "Edição", "Marketing", "Publicidade", "Equipamentos", "Aluguel de Estúdio", "Software/Serviços", "Transporte", "Alimentação", "Impostos/Taxas", "Outros"],
     receitas: ["Publicidade/Patrocínio", "Venda de Produtos", "Serviços/Consultoria", "Assinaturas/Memberships", "Doações", "Outros"]
   });
