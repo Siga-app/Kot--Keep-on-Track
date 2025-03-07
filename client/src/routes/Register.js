@@ -3,14 +3,14 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function Register() {
+  const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [nome, setNome] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('https://kot-keep-on-track.onrender.com/api/auth/register', { email, password, nome })
+    axios.post('https://kot-keep-on-track.onrender.com/api/auth/register', { nome, email, password })
       .then(response => {
         alert('Registro realizado com sucesso!');
         navigate('/login');
@@ -22,7 +22,7 @@ function Register() {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
       <h2>Registro</h2>
       <form onSubmit={handleSubmit}>
         <div>
