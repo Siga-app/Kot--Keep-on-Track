@@ -33,7 +33,6 @@ const Dashboard = () => {
 
   return (
     <div className="flex h-screen bg-gray-100">
-      {/* Sidebar */}
       <div className="w-20 bg-blue-600 text-white flex flex-col items-center py-8">
         <div className="font-bold text-xl mb-8">KOT</div>
         <nav className="flex flex-col items-center space-y-8">
@@ -62,7 +61,6 @@ const Dashboard = () => {
           </button>
         </div>
       </div>
-      {/* Conteúdo Principal */}
       <div className="flex-1 overflow-auto">
         <header className="bg-white shadow px-8 py-4">
           <div className="flex justify-between items-center">
