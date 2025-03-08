@@ -105,7 +105,9 @@ const LoginPage = () => {
             </div>
             {isLogin && (
               <div className="mb-6 text-right">
-                <a href="#" className="text-blue-600 hover:text-blue-800 text-sm">Esqueceu sua senha?</a>
+                <button type="button" className="text-blue-600 hover:text-blue-800 text-sm">
+                  Esqueceu sua senha?
+                </button>
               </div>
             )}
             <button
